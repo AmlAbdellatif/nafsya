@@ -1,0 +1,52 @@
+
+
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block body %}
+ <center>
+  <div class="container" >
+    <h1 class="text-center logo my-4">
+      <a href="{% url 'home' %}">Nafsya</a>
+    </h1>
+    <div class="row justify-content-center" id="signn" >
+      <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Sign IN</h3>
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+{% if form.non_field_errors%}
+<div class="alert alert-danger" role="alerts">
+{%for error in form.non_field_errors%}
+<p {%if forloop.last%} class="mb-0" {%endif%}>{{error}}</p>
+{%endfor%}
+</div>
+{%endif%}
+             {% for field in form %}
+              <p>
+               {{ field.label_tag }}<br>
+               {{ field }}
+              {% if field.help_text %}
+
+               {% endif %}
+                {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+              {% endfor %}
+
+             {% endfor %}
+    <button type="submit">Log IN</button>
+            </form>
+          </div>
+          <div class="card-footer text-muted text-center">
+           Create new account <a href="{%url 'signup'%}">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></center>
+{% endblock %}

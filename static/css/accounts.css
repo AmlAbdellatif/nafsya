@@ -1,0 +1,27 @@
+ body {
+  background-image: url(../img/shattered.png);
+}
+
+.logo {
+  font-family: 'Peralta', cursive;
+}
+
+.logo a {
+  color: rgba(0,0,0,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
+
+#signn{
+    border: 2px solid #00a7ff;
+    width: 300px;
+    height: 500px;
+    margin-top: 50px;
+    font-size: 15px;
+    background-color: white;
+}
+
+}
